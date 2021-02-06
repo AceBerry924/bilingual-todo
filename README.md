@@ -17,9 +17,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - RxJS
 - NgRx (Optional)
 
-# BilingualTodo
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.3.
+.
 
 ## Development server
 
