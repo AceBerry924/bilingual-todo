@@ -1,7 +1,7 @@
 # bilingual-todo
 Angular Multilanguage Todo sample
 
-# Tech Stack
+## Tech Stack
 
 - Angular 11.x
 - Google firebase
