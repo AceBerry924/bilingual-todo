@@ -1,0 +1,13 @@
+.login-wrapper {
+  width: 100%;
+  max-width: 400px;
+
+  .btn-google {
+    mat-icon {
+      width: 24px;
+      height: 24px;
+      display: inline-flex;
+      padding-right: 4px;
+    }
+  }
+}
