@@ -8,7 +8,7 @@ export class DirectionService {
 
   constructor() { }
 
-  changeSiteDirection(lang: string) {
+  changeSiteDirection(lang: string): void {
     this.siteDirection = lang;
   }
 }
