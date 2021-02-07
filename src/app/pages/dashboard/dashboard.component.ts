@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
   removeTask(task) {
     this.tasks.splice(this.tasks.indexOf(task), 1);
   }
-  toggle(task) {
+  toggleTask(task) {
     task.done = !task.done;
   }
 }

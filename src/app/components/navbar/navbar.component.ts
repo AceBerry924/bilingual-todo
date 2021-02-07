@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
@@ -6,21 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  siteLanguage: string = 'English';
+  siteLanguage: string = 'EN';
 
   siteLocale: string;
 
-  languageList = [
-    { code: 'en', label: 'English' },
-    { code: 'he', label: 'Hebrew' },
+  languageList: any = [
+    { code: 'en', label: 'EN' },
+    { code: 'he', label: 'HE' },
   ];
 
 
-  constructor() { }
+  constructor(public translate: TranslateService) { }
 
   ngOnInit(): void {
-    this.siteLocale = window.location.pathname.split('/')[1];
-    this.siteLanguage = this.languageList.find(f => f.code === this.siteLocale).label;
   }
 
+  switchLang(lang: string) {
+    this.translate.use(lang);
+    this.siteLanguage = this.languageList.find((el) => el.code === lang)?.label || 'EN';
+  }
 }

@@ -1,8 +1,7 @@
-<div class="container d-flex flex-column align-items-center h-100 justify-content-center">
+<div class="container d-flex flex-column align-items-center justify-content-center h-100 py-3">
   <div class="login-wrapper">
-
     <mat-toolbar>
-      <span>LOGIN</span>
+      <span class="text-uppercase">{{'Login' | translate }}</span>
     </mat-toolbar>
 
     <mat-card class="my-card">
@@ -21,10 +20,14 @@
 
       <div class="d-flex flex-column">
         <button mat-raised-button (click)="login()" color="primary"
-          class="w-100 mb-3">LOGIN</button>
+          class="w-100 mb-3 text-uppercase">{{'Login' | translate }}</button>
         <button mat-raised-button class="btn-google w-100" color="basic">
           <mat-icon svgIcon="logo"></mat-icon> LOGIN WITH GOOGLE
         </button>
+      </div>
+
+      <div class="text-center pt-4">
+        Don't have an account? <a routerLink="/register">Sign up</a>
       </div>
     </mat-card>
   </div>

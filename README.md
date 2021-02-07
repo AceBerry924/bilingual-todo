@@ -17,7 +17,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - RxJS
 - NgRx (Optional)
 
-.
+`ng serve -o --live-reload --configuration=en`
 
 ## Development server
 
