@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { DirectionService } from './_services/direction.service';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,11 @@ export class AppComponent {
   title = 'bilingual-todo';
 
   constructor(
-    public translate: TranslateService
+    private translate: TranslateService,
+    public dir: DirectionService
+
   ) {
-    translate.addLangs(['en', 'nl']);
-    translate.setDefaultLang('en');
+    this.translate.addLangs(['en', 'nl']);
+    this.translate.setDefaultLang('en');
   }
 }

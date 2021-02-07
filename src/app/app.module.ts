@@ -2,12 +2,16 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { BidiModule } from '@angular/cdk/bidi';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { MaterialModule } from './material.module';
+import { ServicesModule } from './_services/services.module';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -31,7 +35,9 @@ import { LoginComponent } from './pages/login/login.component';
     ReactiveFormsModule,
     HttpClientModule,
     DragDropModule,
+    BidiModule,
     MaterialModule,
+    ServicesModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
