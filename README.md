@@ -1,6 +1,6 @@
-# BilingualTodo
+# Bilingual Todo
 
-Angular Multilanguage Todo sample
+Angular Multi language Todo sample
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.3.
 
 ## Tech Stack
@@ -16,6 +16,21 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Angular i18n ([https://angular.io/guide/i18n](https://angular.io/guide/i18n))
 - RxJS
 - NgRx (Optional)
+
+## **Requirements**
+
+- Website should be available in two languages
+  - English
+  - Arabic (Or another RTL language)
+- Responsive design is required.
+- Website should have a dark mode as well (last state should be saved on the browser’s local storage to be used for next visits)
+- Required pages:
+  - Login page
+  - Sign up page
+  - Dashboard page (Only for authorized users)
+- User can change order of each task on the list.
+- User can filter to-list using task title.
+- User can logout.
 
 `ng serve -o --live-reload --configuration=en`
 
