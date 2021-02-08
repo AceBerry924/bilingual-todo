@@ -1,22 +1,28 @@
 import { Injectable } from '@angular/core';
+import firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { of, Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import firebase from 'firebase/app';
+
 import { NotificationService } from './notification.service';
+
+import { User } from '../_models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  user: any;
+  public authState: Observable<firebase.User>
 
   constructor(
     private afAuth: AngularFireAuth,
     private fireStore: AngularFirestore,
     private router: Router,
     private notification: NotificationService,
-  ) { }
+  ) {
+    this.authState = this.afAuth.authState;
+  }
 
   async loginWithEmail(email: string, password: string): Promise<void> {
     try {
@@ -70,12 +76,13 @@ export class AuthService {
 
   async logout(): Promise<void> {
     await this.afAuth.signOut();
-    localStorage.removeItem('user');
-    this.router.navigate(['admin/login']);
+    this.notification.open('Signed out');
+    // localStorage.removeItem('user');
+    this.router.navigate(['/login']);
   }
 
-  get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return user !== null;
-  }
+  // get isLoggedIn(): boolean {
+  //   const user = JSON.parse(localStorage.getItem('user'));
+  //   return user !== null;
+  // }
 }

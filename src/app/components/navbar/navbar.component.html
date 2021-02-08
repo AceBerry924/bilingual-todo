@@ -1,15 +1,18 @@
 <mat-toolbar color="primary" class="nav-bar mat-elevation-z2">
   <mat-label>{{'SiteTitle' | translate}}</mat-label>
   <span class="spacer"></span>
-  <ng-container>
-    <mat-icon>language</mat-icon>
-    <button mat-button [matMenuTriggerFor]="menu">
-      {{siteLanguage | translate}}
-      <mat-icon>arrow_drop_down</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <a mat-menu-item (click)="switchLang('en')">{{'English' | translate}}</a>
-      <a mat-menu-item (click)="switchLang('he')">{{'Hebrew' | translate}}</a>
-    </mat-menu>
-  </ng-container>
+  <div class="d-flex align-items-center">
+    <ng-container>
+      <mat-icon>language</mat-icon>
+      <button mat-button [matMenuTriggerFor]="menu">
+        {{siteLanguage | translate}}
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <a mat-menu-item (click)="switchLang('en')">{{'English' | translate}}</a>
+        <a mat-menu-item (click)="switchLang('he')">{{'Hebrew' | translate}}</a>
+      </mat-menu>
+    </ng-container>
+  </div>
+  <button mat-button (click)="logout()">Logout</button>
 </mat-toolbar>

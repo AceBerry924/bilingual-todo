@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { TranslateService } from '@ngx-translate/core';
-import { DirectionService } from '../../_services/direction.service';
+import { AuthService } from 'src/app/_services/auth.service';
+import { DirectionService } from 'src/app/_services/direction.service';
 
 @Component({
   selector: 'app-navbar',
@@ -19,8 +20,9 @@ export class NavbarComponent implements OnInit {
 
 
   constructor(
-    public translate: TranslateService,
+    private auth: AuthService,
     public dir: DirectionService,
+    public translate: TranslateService,
   ) {
   }
 
@@ -36,5 +38,9 @@ export class NavbarComponent implements OnInit {
     if (lang === 'he') {
       this.dir.changeSiteDirection('rtl');
     }
+  }
+
+  logout(): void {
+    this.auth.logout();
   }
 }
