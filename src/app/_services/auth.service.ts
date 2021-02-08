@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-
+import firebase from 'firebase/app';
 import { NotificationService } from './notification.service';
-// import { auth, User } from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +18,7 @@ export class AuthService {
     private notification: NotificationService,
   ) { }
 
-  async loginWithEmail(email: string, password: string) {
+  async loginWithEmail(email: string, password: string): Promise<void> {
     try {
       await this.afAuth.signInWithEmailAndPassword(email, password);
       this.router.navigate(['/dashboard']);
@@ -28,16 +27,19 @@ export class AuthService {
     }
   }
 
-  // async loginWithGoogle() {
-  //   await this.afAuth.signInWithPopup(new auth.GoogleAuthProvider());
-  //   this.router.navigate(['admin/list']);
-  // }
-
-  async register(email: string, password: string) {
-    var result = await this.afAuth.createUserWithEmailAndPassword(email, password);
+  async loginWithGoogle(): Promise<void> {
+    try {
+      const userCredential = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+      if (userCredential.user) {
+        await this.insertUserData(userCredential.user);
+        this.router.navigate(['/dashboard']);
+      }
+    } catch (err) {
+      this.notification.open(err.message);
+    }
   }
 
-  async createUser(name: string, email: string, password: string) {
+  async createUser(name: string, email: string, password: string): Promise<void> {
     try {
       const userCredential = await this.afAuth.createUserWithEmailAndPassword(email, password);
       await userCredential.user.updateProfile({
@@ -51,7 +53,7 @@ export class AuthService {
     }
   }
 
-  insertUserData(user: any) {
+  insertUserData(user: any): Promise<void> {
     const userRef: AngularFirestoreDocument<any> = this.fireStore.doc(`Users/${user.uid}`);
 
     const userState: any = {
@@ -66,7 +68,7 @@ export class AuthService {
     })
   }
 
-  async logout() {
+  async logout(): Promise<void> {
     await this.afAuth.signOut();
     localStorage.removeItem('user');
     this.router.navigate(['admin/login']);

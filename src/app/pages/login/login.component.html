@@ -16,15 +16,14 @@
             <input matInput formControlName="password" name="password" type="password">
           </mat-form-field>
 
-          <div class="d-flex flex-column">
-            <button mat-raised-button color="primary" type="submit"
-              class="w-100 mb-3 text-uppercase">{{'Login' | translate }}</button>
-            <button mat-raised-button class="btn-google w-100 text-uppercase" color="basic"
-              (click)="googleLogin()">
-              <mat-icon svgIcon="logo"></mat-icon> {{'Login with Google' | translate}}
-            </button>
-          </div>
+          <button mat-raised-button color="primary" type="submit"
+            class="w-100 mb-3 text-uppercase">{{'Login' | translate }}</button>
         </form>
+
+        <button mat-raised-button class="btn-google w-100 text-uppercase" color="basic"
+          (click)="googleLogin()">
+          <mat-icon svgIcon="logo"></mat-icon> {{'Login with Google' | translate}}
+        </button>
 
         <div class="text-center pt-4">
           {{'Dont have account' | translate}} <a

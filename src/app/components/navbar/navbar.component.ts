@@ -9,7 +9,7 @@ import { DirectionService } from '../../_services/direction.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  siteLanguage: string = 'EN';
+  siteLanguage = 'EN';
   siteLocale: string;
 
   languageList: any = [
@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  switchLang(lang: string) {
+  switchLang(lang: string): void {
     this.translate.use(lang);
     this.siteLanguage = this.languageList.find((el) => el.code === lang)?.label || 'EN';
 

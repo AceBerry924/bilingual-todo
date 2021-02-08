@@ -9,10 +9,10 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { BidiModule } from '@angular/cdk/bidi';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
-import { environment } from "src/environments/environment";
-import { AngularFireModule } from "@angular/fire";
-import { AngularFireAuthModule } from "@angular/fire/auth";
-import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { MaterialModule } from './material.module';
 import { ServicesModule } from './_services/services.module';
@@ -62,6 +62,6 @@ import { RegisterComponent } from './pages/register/register.component';
 export class AppModule { }
 
 // AOT compilation support
-export function httpTranslateLoader(http: HttpClient) {
+export function httpTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
 }

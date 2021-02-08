@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/_services/auth.service';
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
-  googleLogoURL: string =
+  googleLogoURL =
     'https://raw.githubusercontent.com/fireflysemantics/logo/master/Google.svg';
 
   constructor(
@@ -42,6 +42,6 @@ export class LoginComponent implements OnInit {
   }
 
   googleLogin(): void {
-
+    this.auth.loginWithGoogle();
   }
 }

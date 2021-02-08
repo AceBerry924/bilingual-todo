@@ -11,7 +11,7 @@ export class NotificationService {
     private zone: NgZone
   ) { }
 
-  public open(message, action = 'Okay', duration = 3000) {
+  public open(message, action = 'Okay', duration = 3000): void {
     this.zone.run(() => {
       this.snackBar.open(message, action, { duration });
     });
