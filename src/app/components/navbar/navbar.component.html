@@ -14,5 +14,5 @@
       </mat-menu>
     </ng-container>
   </div>
-  <button mat-button (click)="logout()" *ngIf="auth.isLoggedIn">Logout</button>
+  <button mat-button (click)="logout()" *ngIf="auth.isLoggedIn">{{'Logout' | translate}}</button>
 </mat-toolbar>

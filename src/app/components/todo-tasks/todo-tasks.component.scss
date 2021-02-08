@@ -4,6 +4,12 @@
     ::ng-deep mat-checkbox {
       label {
         margin-bottom: 0;
+
+        span {
+          &.done {
+            text-decoration: line-through;
+          }
+        }
       }
     }
 

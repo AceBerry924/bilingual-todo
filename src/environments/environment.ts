@@ -7,6 +7,7 @@ export const environment = {
   firebaseConfig: {
     apiKey: 'AIzaSyCjak-Pc0RNkvxEfrxq918v9QTczB3on3s',
     authDomain: 'bilingual-todo.firebaseapp.com',
+    databaseURL: 'https://bilingual-todo.firebaseapp.com',
     projectId: 'bilingual-todo',
     storageBucket: 'bilingual-todo.appspot.com',
     messagingSenderId: '241748469060',

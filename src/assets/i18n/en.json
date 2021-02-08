@@ -1,4 +1,5 @@
 {
+	"Add": "Add",
 	"Already have account": "Already have an account?",
 	"Dont have account": "Don't have an account?",
 	"Email": "Email address",
@@ -8,6 +9,7 @@
 	"Last Name": "Last Name",
 	"Login": "Login",
 	"Login with Google": "Login with Google",
+	"Logout": "Logout",
 	"Name": "Name",
 	"Password": "Password",
 	"PhoneNo": "Phone No",

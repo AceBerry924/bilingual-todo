@@ -17,14 +17,15 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { MaterialModule } from './material.module';
 import { ServicesModule } from './_services/services.module';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { TodoTasksComponent } from './components/todo-tasks/todo-tasks.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+
 
 @NgModule({
   declarations: [

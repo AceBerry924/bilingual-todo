@@ -1,4 +1,5 @@
 {
+	"Add": "הוסף",
 	"Already have account": "כבר יש לך חשבון?",
 	"Dont have account": "אין לך חשבון?",
 	"Email": "כתובת דוא\"ל",
@@ -8,6 +9,7 @@
 	"Last Name": "שם משפחה",
 	"Login": "התחברות",
 	"Login with Google": "התחבר עם גוגל",
+	"Logout": "להתנתק",
 	"Name": "שם",
 	"Password": "סיסמה",
 	"PhoneNo": "Telefoon nr",

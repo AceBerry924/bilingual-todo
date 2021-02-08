@@ -10,7 +10,7 @@
 <mat-list *ngIf="tasks?.length" cdkDropList (cdkDropListDropped)="drop($event)">
   <mat-list-item *ngFor="let task of tasks;let i = index" cdkDrag>
     <mat-checkbox [(ngModel)]="!!task.done" (ngModelChange)="toggleTask(task)" color="primary">
-      <span [ngClass]="{ done:task.done }">{{task.title}}</span>
+      <span [ngClass]="{ done:task.done }">{{task.title | translate}}</span>
     </mat-checkbox>
 
     <button matTooltip="Delete task" matTooltipPosition="above" mat-icon-button

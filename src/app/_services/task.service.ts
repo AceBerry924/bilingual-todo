@@ -25,15 +25,18 @@ export class TaskService {
   }
 
   add(task: Task): any {
-    return this.tasksRef.add(task)
+    return this.tasksRef.doc(task.id).set(task)
       .catch((err) => this.notification.open(err.message));
   }
 
-  update(id: string, task: Task): Promise<void> {
-    // return this.fireStore.doc(`/Tasks/${task.id}`)
+  update(id: string, data: any): Promise<void> {
+    console.log(data);
+
     return this.tasksRef.doc(id)
-      .update(task)
-      .catch((err) => this.notification.open(err.message));
+      .update(data)
+      .catch((err) => {
+        this.notification.open(err.message);
+      });
   }
 
   delete(id: string): Promise<void> {
