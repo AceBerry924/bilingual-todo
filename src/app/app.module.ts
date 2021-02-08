@@ -9,6 +9,10 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { BidiModule } from '@angular/cdk/bidi';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
+import { environment } from "src/environments/environment";
+import { AngularFireModule } from "@angular/fire";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+
 import { MaterialModule } from './material.module';
 import { ServicesModule } from './_services/services.module';
 
@@ -36,6 +40,8 @@ import { LoginComponent } from './pages/login/login.component';
     HttpClientModule,
     DragDropModule,
     BidiModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
     MaterialModule,
     ServicesModule,
     TranslateModule.forRoot({
