@@ -31,6 +31,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - User can change order of each task on the list.
 - User can filter to-list using task title.
 - User can logout.
+- Be careful that none of the following commands encounter an error:
+  - ng lint
+  - ng test
+  - ng serve
+  - ng build --prod --localize
 
 `ng serve -o --live-reload --configuration=en`
 
