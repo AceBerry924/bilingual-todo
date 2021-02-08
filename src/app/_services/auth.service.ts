@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { of, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
+import { User } from 'src/app/_models/user.model';
 import { NotificationService } from './notification.service';
 
-import { User } from '../_models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +16,20 @@ export class AuthService {
   public authState: Observable<firebase.User>
 
   constructor(
+    private router: Router,
     private afAuth: AngularFireAuth,
     private fireStore: AngularFirestore,
-    private router: Router,
     private notification: NotificationService,
   ) {
     this.authState = this.afAuth.authState;
+    this.authState.subscribe((user) => {
+      if (user) {
+        let userData: User = user;
+        localStorage.setItem('user', JSON.stringify(userData));
+      } else {
+        localStorage.setItem('user', null);
+      }
+    })
   }
 
   async loginWithEmail(email: string, password: string): Promise<void> {
@@ -77,12 +85,13 @@ export class AuthService {
   async logout(): Promise<void> {
     await this.afAuth.signOut();
     this.notification.open('Signed out');
-    // localStorage.removeItem('user');
+
+    localStorage.removeItem('user');
     this.router.navigate(['/login']);
   }
 
-  // get isLoggedIn(): boolean {
-  //   const user = JSON.parse(localStorage.getItem('user'));
-  //   return user !== null;
-  // }
+  get isLoggedIn(): boolean {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user !== null;
+  }
 }

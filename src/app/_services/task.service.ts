@@ -14,23 +14,25 @@ export class TaskService {
   constructor(
     private fireStore: AngularFirestore,
     private notification: NotificationService
-  ) { }
+  ) {
+    this.tasksRef = fireStore.collection(this.dbPath);
+  }
 
   getAll(uid: string): AngularFirestoreCollection<Task> {
 
-    this.tasksRef = this.fireStore.collection(this.dbPath, (ref) =>
+    return this.fireStore.collection(this.dbPath, (ref) =>
       ref.where('userId', '==', uid).orderBy('order'));
-    return this.tasksRef;
   }
 
   add(task: Task): any {
-    return this.tasksRef.add({ ...task })
-      .catch((err) => this.notification.open(err.message));;
+    return this.tasksRef.add(task)
+      .catch((err) => this.notification.open(err.message));
   }
 
-  update(id: string, data: any): Promise<void> {
-    return this.tasksRef.doc(id)
-      .update(data)
+  update(id: string, task: Task): Promise<void> {
+    return this.fireStore.doc(`/Tasks/${task.id}`)
+      // return this.tasksRef.doc(id)
+      .update(task)
       .catch((err) => this.notification.open(err.message));
   }
 

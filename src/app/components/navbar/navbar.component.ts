@@ -12,6 +12,7 @@ import { DirectionService } from 'src/app/_services/direction.service';
 export class NavbarComponent implements OnInit {
   siteLanguage = 'EN';
   siteLocale: string;
+  loggedIn = false;
 
   languageList: any = [
     { code: 'en', label: 'EN' },
@@ -20,7 +21,7 @@ export class NavbarComponent implements OnInit {
 
 
   constructor(
-    private auth: AuthService,
+    public auth: AuthService,
     public dir: DirectionService,
     public translate: TranslateService,
   ) {
