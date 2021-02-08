@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+
+import { NotificationService } from './notification.service';
 // import { auth, User } from 'firebase/app';
 
 @Injectable({
@@ -14,11 +16,16 @@ export class AuthService {
     private afAuth: AngularFireAuth,
     private fireStore: AngularFirestore,
     private router: Router,
+    private notification: NotificationService,
   ) { }
 
   async loginWithEmail(email: string, password: string) {
-    var result = await this.afAuth.signInWithEmailAndPassword(email, password);
-    this.router.navigate(['admin/list']);
+    try {
+      await this.afAuth.signInWithEmailAndPassword(email, password);
+      this.router.navigate(['/dashboard']);
+    } catch (err) {
+      this.notification.open(err.message);
+    }
   }
 
   // async loginWithGoogle() {
@@ -37,11 +44,10 @@ export class AuthService {
         displayName: name
       });
 
-      console.log('userCredential', userCredential);
       await this.insertUserData(userCredential.user);
       this.router.navigate(['/dashboard']);
-    } catch (error) {
-
+    } catch (err) {
+      this.notification.open(err.message);
     }
   }
 
