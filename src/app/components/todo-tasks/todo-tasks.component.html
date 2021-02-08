@@ -3,8 +3,8 @@
     <input matInput placeholder="Add new task" #taskInput>
   </mat-form-field>
 
-  <button mat-raised-button class="ml-3 px-5" color="primary" [disabled]="taskInput.value === ''"
-    (click)="addTask(taskInput.value); taskInput.value = ''">Add</button>
+  <button mat-raised-button class="mx-3 px-5" color="primary" [disabled]="taskInput.value === ''"
+    (click)="addTask(taskInput.value); taskInput.value = ''">{{'Add' | translate}}</button>
 </div>
 
 <mat-list *ngIf="tasks?.length" cdkDropList (cdkDropListDropped)="drop($event)">
@@ -22,5 +22,5 @@
 </mat-list>
 
 <div class="alert alert-warning" role="alert" *ngIf="!tasks?.length">
-  There is no task.
+  {{'No Task' | translate}}
 </div>
