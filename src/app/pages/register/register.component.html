@@ -9,31 +9,31 @@
         <form class="my-form" [formGroup]="form" (ngSubmit)="onSubmit()">
           <mat-form-field class="w-100">
             <mat-label>{{'First Name' | translate }}</mat-label>
-            <input matInput name="firstName">
+            <input matInput formControlName="firstName" name="firstName">
           </mat-form-field>
           <mat-form-field class="w-100">
             <mat-label>{{'Last Name' | translate }}</mat-label>
-            <input matInput name="lastName">
+            <input matInput formControlName="lastName" name="lastName">
           </mat-form-field>
           <mat-form-field class="w-100">
             <mat-label>{{'Email' | translate }}</mat-label>
-            <input matInput name="email" type="email">
+            <input matInput formControlName="email" name="email" type="email">
           </mat-form-field>
           <mat-form-field class="w-100">
             <mat-label>{{'Password' | translate }}</mat-label>
-            <input matInput name="password" type="password">
+            <input matInput formControlName="password" name="password" type="password">
           </mat-form-field>
+
+          <div class="d-flex flex-column pt-2">
+            <button mat-raised-button color="primary" class="w-100 mb-3 text-uppercase"
+              type="submit">{{'Sign up' | translate }}</button>
+          </div>
         </form>
+
+        <div class="text-center pt-3">
+          {{'Already have account' | translate}} <a routerLink="/login">{{'Login' | translate }}</a>
+        </div>
       </mat-card-content>
-
-      <div class="d-flex flex-column">
-        <button mat-raised-button color="primary"
-          class="w-100 mb-3 text-uppercase">{{'Sign up' | translate }}</button>
-      </div>
-
-      <div class="text-center pt-4">
-        {{'Already have account' | translate}} <a routerLink="/login">{{'Login' | translate }}</a>
-      </div>
     </mat-card>
   </div>
 </div>
