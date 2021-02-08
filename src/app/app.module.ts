@@ -11,6 +11,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { environment } from "src/environments/environment";
 import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 
 import { MaterialModule } from './material.module';
@@ -22,6 +23,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TodoTasksComponent } from './components/todo-tasks/todo-tasks.component';
 import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { LoginComponent } from './pages/login/login.component';
     NavbarComponent,
     TodoTasksComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { LoginComponent } from './pages/login/login.component';
     DragDropModule,
     BidiModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
     AngularFirestoreModule,
     MaterialModule,
     ServicesModule,

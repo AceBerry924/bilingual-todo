@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
 
 
   constructor(
-    private translate: TranslateService,
+    public translate: TranslateService,
     public dir: DirectionService,
   ) {
   }
