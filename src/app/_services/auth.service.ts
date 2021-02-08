@@ -13,7 +13,7 @@ import { NotificationService } from './notification.service';
   providedIn: 'root'
 })
 export class AuthService {
-  public authState: Observable<firebase.User>
+  authState: Observable<firebase.User>;
 
   constructor(
     private router: Router,
@@ -24,12 +24,12 @@ export class AuthService {
     this.authState = this.afAuth.authState;
     this.authState.subscribe((user) => {
       if (user) {
-        let userData: User = user;
+        const userData: User = user;
         localStorage.setItem('user', JSON.stringify(userData));
       } else {
         localStorage.setItem('user', null);
       }
-    })
+    });
   }
 
   async loginWithEmail(email: string, password: string): Promise<void> {
@@ -68,18 +68,19 @@ export class AuthService {
   }
 
   insertUserData(user: any): Promise<void> {
-    const userRef: AngularFirestoreDocument<any> = this.fireStore.doc(`Users/${user.uid}`);
+    const userRef: AngularFirestoreDocument<User> = this.fireStore.doc(`Users/${user.uid}`);
 
-    const userState: any = {
+    const userState: User = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified
-    }
+    };
+
     return userRef.set(userState, {
       merge: true
-    })
+    });
   }
 
   async logout(): Promise<void> {

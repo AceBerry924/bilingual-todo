@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop'
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 
@@ -35,7 +35,7 @@ export class TodoTasksComponent implements OnInit {
               const output = res[x];
               output._key = x;
               return output;
-            })
+            });
           })
         ).subscribe(data => {
           this.tasks = data;
@@ -46,11 +46,13 @@ export class TodoTasksComponent implements OnInit {
   }
 
   addTask(title: string): void {
-    if (title === "") return;
+    if (title === '') {
+      return;
+    }
 
     const data: Task = {
       id: this.angularFireStore.createId(),
-      title: title,
+      title,
       done: false,
       userId: this.user.uid,
       order: this.tasks.length,
@@ -76,7 +78,7 @@ export class TodoTasksComponent implements OnInit {
   }
 
 
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<string[]>): any {
     moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
   }
 }

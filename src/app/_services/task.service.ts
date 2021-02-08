@@ -30,8 +30,8 @@ export class TaskService {
   }
 
   update(id: string, task: Task): Promise<void> {
-    return this.fireStore.doc(`/Tasks/${task.id}`)
-      // return this.tasksRef.doc(id)
+    // return this.fireStore.doc(`/Tasks/${task.id}`)
+    return this.tasksRef.doc(id)
       .update(task)
       .catch((err) => this.notification.open(err.message));
   }
@@ -39,6 +39,6 @@ export class TaskService {
   delete(id: string): Promise<void> {
     return this.tasksRef.doc(id)
       .delete()
-      .catch((err) => this.notification.open(err.message));;
+      .catch((err) => this.notification.open(err.message));
   }
 }
