@@ -1,19 +1,22 @@
 <mat-toolbar color="primary" class="nav-bar mat-elevation-z2">
-  <mat-label>{{'SiteTitle' | translate}}</mat-label>
-  <span class="spacer"></span>
-  <div class="d-flex align-items-center">
-    <ng-container>
-      <mat-icon>language</mat-icon>
-      <button mat-button [matMenuTriggerFor]="menu">
-        {{siteLanguage | translate}}
-        <mat-icon>arrow_drop_down</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <a mat-menu-item (click)="switchLang('en')">{{'English' | translate}}</a>
-        <a mat-menu-item (click)="switchLang('he')">{{'Hebrew' | translate}}</a>
-      </mat-menu>
-    </ng-container>
+  <div class="d-flex align-content-center flex-grow-1">
+    <mat-label>{{'SiteTitle' | translate}}</mat-label>
+    <span class="spacer"></span>
+    <div class="d-flex align-items-center">
+      <ng-container>
+        <mat-icon>language</mat-icon>
+        <button mat-button [matMenuTriggerFor]="menu">
+          {{siteLanguage | translate}}
+          <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <a mat-menu-item (click)="switchLang('en')">{{'English' | translate}}</a>
+          <a mat-menu-item (click)="switchLang('he')">{{'Hebrew' | translate}}</a>
+        </mat-menu>
+      </ng-container>
+    </div>
   </div>
+
   <div class="d-flex align-content-center">
     <mat-icon class="mr-8">brightness_5</mat-icon>
     <mat-slide-toggle [checked]="isDarkTheme | async" (change)="toggleDarkTheme($event.checked)"
