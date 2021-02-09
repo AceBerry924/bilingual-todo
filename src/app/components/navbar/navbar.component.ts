@@ -12,7 +12,6 @@ import { ThemeService } from 'src/app/_services/theme.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  loggedIn = false;
   siteLanguage = 'EN';
   siteLocale: string;
   isDarkTheme: Observable<boolean>;

@@ -24,5 +24,6 @@
     </mat-slide-toggle>
     <mat-icon>bedtime</mat-icon>
   </div>
-  <button mat-button (click)="logout()" *ngIf="auth.isLoggedIn">{{'Logout' | translate}}</button>
+  <button mat-button (click)="logout()"
+    *ngIf="auth.authState | async">{{'Logout' | translate}}</button>
 </mat-toolbar>

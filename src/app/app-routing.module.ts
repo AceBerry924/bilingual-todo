@@ -7,7 +7,6 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import {
   redirectUnauthorizedTo,
   redirectLoggedInTo,
-  canActivate,
   AngularFireAuthGuard
 } from '@angular/fire/auth-guard';
 

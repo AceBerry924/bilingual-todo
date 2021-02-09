@@ -22,14 +22,6 @@ export class AuthService {
     private notification: NotificationService,
   ) {
     this.authState = this.afAuth.authState;
-    this.authState.subscribe((user) => {
-      if (user) {
-        const userData: User = user;
-        localStorage.setItem('user', JSON.stringify(userData));
-      } else {
-        localStorage.setItem('user', null);
-      }
-    });
   }
 
   async loginWithEmail(email: string, password: string): Promise<void> {
@@ -85,14 +77,8 @@ export class AuthService {
 
   async logout(): Promise<void> {
     await this.afAuth.signOut();
+
     this.notification.open('Signed out');
-
-    localStorage.removeItem('user');
     this.router.navigate(['/login']);
-  }
-
-  get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return user !== null;
   }
 }
