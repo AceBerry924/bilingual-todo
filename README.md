@@ -8,7 +8,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Angular 11.1.3
 - Google firebase
   - Authentication
-  - Could Firestore
+  - Cloud Firestore
 - Angular Material 11.x
 - Bootstrap 4.5 (Optional)
 - TypeScript 4.x
