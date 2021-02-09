@@ -22,7 +22,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Website should be available in two languages
   - English
   - Arabic (Or another RTL language)
-- Responsive design is required.
+- Responsive design
 - Website should have a dark mode as well (last state should be saved on the browser’s local storage to be used for next visits)
 - Required pages:
   - Login page
