@@ -4,6 +4,7 @@ import { AuthService } from './auth.service';
 import { DirectionService } from './direction.service';
 import { NotificationService } from './notification.service';
 import { TaskService } from './task.service';
+import { ThemeService } from './theme.service';
 
 @NgModule({
   declarations: [],
@@ -15,7 +16,8 @@ import { TaskService } from './task.service';
     AuthService,
     DirectionService,
     NotificationService,
-    TaskService
+    TaskService,
+    ThemeService
   ]
 })
 export class ServicesModule { }
