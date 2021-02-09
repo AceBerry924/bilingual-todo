@@ -41,7 +41,6 @@ export class TodoTasksComponent implements OnInit {
           })
         ).subscribe(data => {
           this.tasks = data;
-          console.log(this.tasks);
         });
       }
     });

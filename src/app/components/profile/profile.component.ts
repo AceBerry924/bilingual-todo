@@ -17,7 +17,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user'));
-    console.log(this.user);
   }
 
   getAbbr(name: string): string {
