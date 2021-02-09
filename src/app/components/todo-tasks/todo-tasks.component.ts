@@ -51,12 +51,15 @@ export class TodoTasksComponent implements OnInit {
       return;
     }
 
+    const { length: l, [l - 1]: last } = this.tasks;
+
+
     const data: Task = {
       id: this.angularFireStore.createId(),
       title,
       done: false,
       userId: this.user.uid,
-      order: this.tasks.length,
+      order: Math.max(last?.order + 1 || 0, this.tasks.length),
     };
 
     this.taskService.add(data);
@@ -77,5 +80,21 @@ export class TodoTasksComponent implements OnInit {
 
   drop(event: CdkDragDrop<string[]>): any {
     moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
+
+    const closeToEnd = event.currentIndex >= this.tasks.length / 2;
+    if (closeToEnd) {
+      this.updateOrder(0, event.currentIndex + 1);
+    } else {
+      this.updateOrder(event.currentIndex, this.tasks.length);
+    }
+  }
+
+  updateOrder(startIndex: number, endIndex: number) {
+    for (let i = startIndex; i < endIndex; i++) {
+      const data = {
+        order: i
+      };
+      this.taskService.update(this.tasks[i]?.id, data);
+    }
   }
 }
