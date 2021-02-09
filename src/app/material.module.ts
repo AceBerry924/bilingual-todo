@@ -13,6 +13,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatListModule,
     MatDividerModule,
     MatMenuModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSlideToggleModule
   ]
 })
 

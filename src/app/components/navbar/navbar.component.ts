@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
 import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
+
 import { AuthService } from 'src/app/_services/auth.service';
 import { DirectionService } from 'src/app/_services/direction.service';
+import { ThemeService } from 'src/app/_services/theme.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,9 +12,10 @@ import { DirectionService } from 'src/app/_services/direction.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  loggedIn = false;
   siteLanguage = 'EN';
   siteLocale: string;
-  loggedIn = false;
+  isDarkTheme: Observable<boolean>;
 
   languageList: any = [
     { code: 'en', label: 'EN' },
@@ -23,11 +26,14 @@ export class NavbarComponent implements OnInit {
   constructor(
     public auth: AuthService,
     public dir: DirectionService,
-    public translate: TranslateService,
+    private themeService: ThemeService,
+    public translate: TranslateService
   ) {
   }
 
   ngOnInit(): void {
+    console.log(this.themeService.isDarkTheme);
+    this.isDarkTheme = this.themeService.isDarkTheme;
   }
 
   switchLang(lang: string): void {
@@ -39,6 +45,10 @@ export class NavbarComponent implements OnInit {
     if (lang === 'he') {
       this.dir.changeSiteDirection('rtl');
     }
+  }
+
+  toggleDarkTheme(checked: boolean): void {
+    this.themeService.setDarkTheme(checked);
   }
 
   logout(): void {

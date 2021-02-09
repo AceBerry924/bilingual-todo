@@ -14,5 +14,12 @@
       </mat-menu>
     </ng-container>
   </div>
+  <div class="d-flex align-content-center">
+    <mat-icon class="mr-8">brightness_5</mat-icon>
+    <mat-slide-toggle [checked]="isDarkTheme | async" (change)="toggleDarkTheme($event.checked)"
+      class="mr-8 px-1">
+    </mat-slide-toggle>
+    <mat-icon>bedtime</mat-icon>
+  </div>
   <button mat-button (click)="logout()" *ngIf="auth.isLoggedIn">{{'Logout' | translate}}</button>
 </mat-toolbar>

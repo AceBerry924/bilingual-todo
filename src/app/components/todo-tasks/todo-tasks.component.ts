@@ -89,7 +89,7 @@ export class TodoTasksComponent implements OnInit {
     }
   }
 
-  updateOrder(startIndex: number, endIndex: number) {
+  updateOrder(startIndex: number, endIndex: number): void {
     for (let i = startIndex; i < endIndex; i++) {
       const data = {
         order: i

@@ -29,6 +29,16 @@ $bilingual-todo-theme: mat-light-theme((color: (primary: $bilingual-todo-primary
 // that you are using.
 @include angular-material-theme($bilingual-todo-theme);
 
+// Define an alternate dark theme.
+.dark-theme {
+  $dark-primary: mat-palette($mat-yellow);
+  $dark-accent: mat-palette($mat-amber, A400, A100, A700);
+  $dark-warn: mat-palette($mat-red);
+  $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+  @include angular-material-theme($dark-theme);
+}
+
 /* You can add global styles to this file, and also import other style files */
 
 
@@ -47,7 +57,7 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   min-height: 100%;
-  background-color: #fafafa;
+  // background-color: #fafafa;
 }
 
 .main {
