@@ -22,11 +22,9 @@ export class AppComponent implements OnInit {
   ) {
     this.translate.addLangs(['en', 'nl']);
     this.translate.setDefaultLang('en');
-    console.log('home constructor', this.themeService.isDarkTheme);
   }
 
   ngOnInit(): void {
-    console.log('home ngOniti', this.themeService.isDarkTheme);
     this.isDarkTheme = this.themeService.isDarkTheme;
   }
 }
