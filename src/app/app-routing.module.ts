@@ -4,6 +4,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import {
+  redirectUnauthorizedTo,
+  redirectLoggedInTo,
+  canActivate,
+  AngularFireAuthGuard
+} from '@angular/fire/auth-guard';
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
+const redirectLoggedInToHome = () => redirectLoggedInTo(['/dashboard']);
 
 const routes: Routes = [
   {
@@ -14,14 +23,17 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectLoggedInToHome }
   },
   {
     path: 'register',
     component: RegisterComponent,
+    canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectLoggedInToHome }
   },
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }
   },
 ];
 
