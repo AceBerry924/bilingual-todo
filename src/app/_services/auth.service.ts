@@ -28,6 +28,7 @@ export class AuthService {
     try {
       await this.afAuth.signInWithEmailAndPassword(email, password);
       this.router.navigate(['/dashboard']);
+      this.notification.open({ value: 'Successfully logged in', id: '@@loginSuccess' });
     } catch (err) {
       this.notification.open(err.message);
     }
@@ -78,7 +79,7 @@ export class AuthService {
   async logout(): Promise<void> {
     await this.afAuth.signOut();
 
-    this.notification.open('Signed out');
+    this.notification.open({ value: 'Signed out', id: '@@signOut' });
     this.router.navigate(['/login']);
   }
 }
