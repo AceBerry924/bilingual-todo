@@ -9,7 +9,10 @@
     "bilingual-todo": {
       "i18n": {
         "locales": {
-          "en": "src/locale/messages.en.xlf",
+          "en": {
+            "translation": "src/locale/messages.en.xlf",
+            "baseHref": "/"
+          },
           "he": "src/locale/messages.he.xlf"
         }
       },
