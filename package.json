@@ -4,8 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:en": "ng serve --configuration=en",
     "start:he": "ng serve --configuration=he",
     "build": "ng build",
+    "build:en": "ng build --configuration=en",
     "build:he": "ng build --configuration=he",
     "test": "ng test",
     "lint": "ng lint",
