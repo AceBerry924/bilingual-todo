@@ -3,6 +3,8 @@
 Angular Multi language Todo sample
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.3.
 
+This `ngx-translate` branch is using `ngx-translate` library to make website bilingual.
+
 ## Tech Stack
 
 - Angular 11.1.3
